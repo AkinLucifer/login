@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThirdActivity"
+    >
+
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="325sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="First Name"
+        android:textAlignment="center"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="223sp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/button1"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:layout_width="223sp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button1"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:layout_marginStart="25sp"
+        android:text="Gender :"
+        android:layout_below="@+id/edit1"
+        android:textColor="@android:color/black"
+        />
+    <RadioButton
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:layout_below="@+id/edit1"
+        android:layout_toRightOf="@+id/text2"/>
+
+    <Spinner
+        android:layout_marginTop="80sp"
+        android:id="@+id/spin1"
+        android:layout_width="112sp"
+        android:layout_height="112sp"
+        android:prompt="@android:id/title"/>
+</RelativeLayout>

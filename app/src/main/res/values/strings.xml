@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string-array name="app">
+        <item>Parashar</item>
+        <item>Saroj</item>
+        <item>Rupesh</item>
+        <item>Samyok</item>
+        <item>Binaya</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
