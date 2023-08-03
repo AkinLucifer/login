@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewExample">
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/lv_example"
+      android:text="List View "
+      android:textAllCaps="false"
+    /><Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/cus_lv_example"
+      android:text="Custom List View "
+      android:textAllCaps="false"
+    /><Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/gr_example"
+      android:text="Grid View "
+      android:textAllCaps="false"
+    />
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/recy_example"
+      android:text="Recycler View "
+      android:textAllCaps="false"
+    />
+
+</LinearLayout>

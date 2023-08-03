@@ -3,8 +3,15 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -26,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button b1;
 
     TextView t1,t2;
-    Button b2,b3,b4;
+    Button b2,b3,b4,b5,b6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +88,24 @@ public class MainActivity extends AppCompatActivity {
 
         b2 = findViewById(R.id.button2);
 
+
+        b5 = findViewById(R.id.example);
+
+        b6 = findViewById(R.id.map);
+
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mapmaja = new Intent(MainActivity.this,Maps.class);
+                startActivity(mapmaja);
+            }
+        });
+
+        b5.setOnClickListener(v ->{
+            Intent go = new Intent(MainActivity.this,ViewExample.class);
+            startActivity(go);
+        });
+
         b2.setOnClickListener(v -> {
             Intent train = new Intent(MainActivity.this,Dialog_Box_Example.class);
             startActivity(train);
@@ -97,19 +122,8 @@ public class MainActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = e1.getText().toString();
-                String password = e2.getText().toString();
-                Intent i = new Intent(MainActivity.this,secondactivity.class);
-                i.putExtra("uname",name);
-                i.putExtra("password",password);
-                /*if(name.equals("bibek") && password.equals("bibek")){
-                    startActivityForResult(i,0);
-                }
-                else{
-                    Toast.makeText(getBaseContext(),"INCORRECT PASSWORD OR USERNAME" , Toast.LENGTH_LONG).show();
-                }*/
-                startActivityForResult(i,2);
 
+                addNotification();
             }
         });
         b3.setOnClickListener(new View.OnClickListener() {
@@ -135,6 +149,33 @@ public class MainActivity extends AppCompatActivity {
                 popupMenu.show();
             }
         });
+    }
+
+    @SuppressLint("MissingPermission")
+    private void addNotification() {
+        String name = e1.getText().toString();
+        String password = e2.getText().toString();
+        Intent i = new Intent(MainActivity.this,secondactivity.class);
+        i.putExtra("uname",name);
+        i.putExtra("password",password);
+                /*if(name.equals("bibek") && password.equals("bibek")){
+                    startActivityForResult(i,0);
+                }
+                else{
+                    Toast.makeText(getBaseContext(),"INCORRECT PASSWORD OR USERNAME" , Toast.LENGTH_LONG).show();
+                }*/
+        startActivityForResult(i,2);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"channel_id")
+                .setContentTitle("Test").setContentText("You have logged in").setSmallIcon(R.drawable.messageicon);
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManagerCompat.createNotificationChannel(new NotificationChannel("channel_id","My Channel", NotificationManager.IMPORTANCE_DEFAULT));
+            builder.setContentIntent(PendingIntent.getActivity(this,0,i, PendingIntent.FLAG_IMMUTABLE));
+        }
+        notificationManagerCompat.notify(0,builder.build());
+
+
     }
 
 

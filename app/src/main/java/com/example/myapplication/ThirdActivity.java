@@ -34,6 +34,8 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
 
         b1 = (Button) findViewById(R.id.button1);
 
+
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

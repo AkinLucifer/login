@@ -24,14 +24,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         />
-    <Button
-        android:layout_width="223sp"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/button1"
-        android:layout_centerHorizontal="true"
-        />
+
     <TextView
         android:id="@+id/text2"
         android:layout_width="80sp"

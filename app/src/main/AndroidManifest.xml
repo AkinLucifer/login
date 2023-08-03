@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,18 +13,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
+        <!--TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDzRoDHG4uYty-slskQDRovr80IzQs4tLs" />
+
+        <activity
+            android:name=".Maps"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".list_view"
+            android:exported="false" />
+        <activity
+            android:name=".ViewExample"
+            android:exported="false" />
+
+
         <activity
             android:name=".Dialog_Box_Example"
             android:exported="false" />
         <activity
-            android:name=".menu"
-            android:exported="false" />
-        <activity
             android:name=".fragment_main"
             android:exported="false" />
-        <activity
-            android:name=".TestLifecycle"
-            android:exported="false" />
+
         <activity
             android:name=".ThirdActivity"
             android:exported="false" />
